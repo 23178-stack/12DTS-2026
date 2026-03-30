@@ -40,7 +40,31 @@ def int_check(min_value=None,max_value=None):
 
 def intructions():
     print("\nYou have entered the instructions")
-    print("")
+    print("""\nWhen selecting targets and other objects, use numerical digits such as 1 to 5
+
+You can quit at any junction by typing "quit" \n""")
+    time.sleep(2)
+    selection()
+
+def pre_flight():
+    global fuel, name, callsign
+    print("\n=======Pre Flight Checks=======\n")
+    name = input("What is your name brave pilot?: ")
+    callsign = input("What is your aircraft's callsign?: ")
+    print("Welcome aboard", name, "flying", callsign)
+    print("""\nDo you wish to carry extra fuel or a repair kit?
+[1] Extra Fuel
+[2] Repair Kit""")
+    choice = int_check(1,2)
+    if choice == 1:
+        print("You have chosen to carry extra fuel")
+        fuel = fuel + random.randint(20,40)
+        print("You now have", fuel, "litres of fuel")
+    elif choice == 2:
+        print("You have chosen a repair kit")
+    else:
+        print("You have somehow managed to break my code")
+
 def bombing_run(board):
     for row in board:
         print("  ".join(row))
