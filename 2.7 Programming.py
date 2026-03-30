@@ -19,6 +19,9 @@ grid = [
     ["-", "-", "-","-","-"],
     ["-", "-", "-","-","-"],
     ["-", "-", "-","-","-"]]
+target_x = random.randint(0,4)
+target_y = random.randint(0,4)
+
 #Functions
 def int_check(min_value=None,max_value=None):
     while True:
@@ -34,7 +37,6 @@ def int_check(min_value=None,max_value=None):
                 continue
 
             return x
-
         except:
             print("\nPlease enter an integer.")
 
@@ -46,6 +48,9 @@ You can quit at any junction by typing "quit" \n""")
     time.sleep(2)
     selection()
 
+def takeoff():
+    print("\nYou have entered the Takeoff")
+
 def pre_flight():
     global fuel, name, callsign
     print("\n=======Pre Flight Checks=======\n")
@@ -55,6 +60,7 @@ def pre_flight():
     print("""\nDo you wish to carry extra fuel or a repair kit?
 [1] Extra Fuel
 [2] Repair Kit""")
+    time.sleep(1)
     choice = int_check(1,2)
     if choice == 1:
         print("You have chosen to carry extra fuel")
@@ -64,6 +70,8 @@ def pre_flight():
         print("You have chosen a repair kit")
     else:
         print("You have somehow managed to break my code")
+    time.sleep(1)
+    takeoff()
 
 def bombing_run(board):
     for row in board:
@@ -79,10 +87,10 @@ def selection():
     welcome_choice = int_check(1,3)
     if welcome_choice == 1:
         print("\nYou choose to start a new game")
-        bombing_run(grid)
+        pre_flight()
     elif welcome_choice == 2:
         print("\nYou have chosen to view the instructions")
-        time.sleep(1.5)
+        time.sleep(1)
         intructions()
     elif welcome_choice == 3:
         print("\nYou have chosen to quit the game")
