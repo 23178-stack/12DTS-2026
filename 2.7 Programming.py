@@ -128,8 +128,13 @@ def bombing_run(board):
 
         fuel = fuel - random.randint(10,20)
         bombs = bombs - 1
-
-    print("You lose")
+    print("\nOut of bombs")
+    time.sleep(0.5)
+    print("\nYou lose")
+    time.sleep(0.5)
+    print("\nThe target was at", target_x, target_y)
+    board[target_x][target_y] = "X"
+    board_print(grid)
 
 def selection():
     global welcome_choice
