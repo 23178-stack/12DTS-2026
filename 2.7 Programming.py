@@ -153,6 +153,8 @@ def bombing_run(board): #this is the bombing run code
     print("\nThe target was at", target_x, target_y)
     board[target_x][target_y] = "X"
     board_print(grid)
+    time.sleep(1)
+    welcome()
 
 def selection(): # this lets the player select what part of the game they want
     global welcome_choice
